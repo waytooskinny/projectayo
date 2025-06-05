@@ -1,22 +1,6 @@
 [
   {
     "ContainingType": "Final_project.Controllers.AuthController",
-    "Method": "Getregistered",
-    "RelativePath": "api/Auth/Id",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Final_project.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",
     "HttpMethod": "POST",

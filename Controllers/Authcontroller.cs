@@ -22,13 +22,7 @@ namespace Final_project.Controllers
         {
             _context = context;
         }
-
-        [HttpGet("Id")]
-        public IActionResult Getregistered(int id)
-        {
-            var locatecustomers = _context.Customer.FirstOrDefault(c => c.Id == id);
-            return Ok(locatecustomers);
-        }
+         
 
         [HttpPost("register")]
         public IActionResult Signupcustomer(Registerdto registerdto)

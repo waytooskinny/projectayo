@@ -4,9 +4,6 @@ namespace Final_project.Dto_s
 {
     public class Logindto
     {
-        public int Id { get; set; }
-        
-        public string Name { get; set; } = null!;
         [Required]
         public string Email { get; set; } = null!;
         [Required]
