@@ -1,0 +1,21 @@
+# Use official .NET SDK image to build and publish the app
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+
+# Copy csproj and restore
+COPY ["Final project.csproj", "./"]
+RUN dotnet restore Final project.csproj
+
+# Copy the rest of the project files and build
+COPY . .
+RUN dotnet publish "Final project.csproj" -c Release -o /app/publish
+
+# Final stage/image
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Final project.csproj"]
