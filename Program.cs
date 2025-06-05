@@ -19,8 +19,21 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API documentation for MyProject"
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
+// Add services to the container.
+// Register the DbContext with dependency injection
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
